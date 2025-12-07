@@ -1,0 +1,64 @@
+{
+  "name": "sv-block-highlight",
+  "displayName": "SystemVerilog/Verilog Block Highlight",
+  "description": "Highlight %% blocks when cursor is inside + boundary lines",
+  "version": "0.1.1",
+  "publisher": "hanleyZ",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:systemverilog",
+    "onLanguage:verilog",
+    "onLanguage:sv",
+    "onLanguage:v",
+    "onLanguage:vhdl"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "sv-block-highlight.insertCodeBlock",
+        "title": "Insert Code Block"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "sv-block-highlight.insertCodeBlock",
+        "key": "ctrl+shift+b",
+        "mac": "cmd+shift+b",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Code Block Highlighter",
+      "properties": {
+          "codeBlockHighlighter.activeBlockBackground": {
+              "type": "string",
+              "default": "rgba(200,200,255,0.12)",
+              "description": "Background color for the active code block"
+          },
+          "codeBlockHighlighter.activeBlockBorderColor": {
+              "type": "string",
+              "default": "rgba(100,100,255,0.8)",
+              "description": "Border color for active code block boundaries"
+          },
+          "codeBlockHighlighter.startMarker": {
+              "type": "string",
+              "default": ">>",
+              "description": "Start marker for code blocks"
+          },
+          "codeBlockHighlighter.endMarker": {
+              "type": "string",
+              "default": "<<",
+              "description": "End marker for code blocks"
+          },
+          "codeBlockHighlighter.inactiveBlockBorderColor": {
+              "type": "string",
+              "default": "rgba(200,200,255,0.6)",
+              "description": "Border color for inactive code block boundaries"
+          }
+      }
+    }
+  }
+}
